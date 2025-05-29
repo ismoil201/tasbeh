@@ -40,26 +40,21 @@
 
 ## 📄 Litsenziya | License | 라이선스
 
-MIT
-
 ## 📱 Ilova Ko‘rinishlari | App Screenshots | 앱 스크린샷들
 
-### 🔹 Asosiy Ekran
-![Main Screen](tasbeh_fon1.png)
+<p float="left">
+  <img src="tasbeh_fon1.png" width="30%" />
+  <img src="tasbeh_fon2.png" width="30%" />
+  <img src="tasbeh_fon3.png" width="30%" />
+</p>
 
-### 🔹 Tarix
-![History Screen](tasbeh_fon2.png)
-
-### 🔹 Statistika
-![Statistics Screen](tasbeh_fon3.png)
-
-### 🔹 Tasbeh Qo‘shish
-![Add Screen](tasbeh_fon4.png)
+<p float="left">
+  <img src="tasbeh_fon4.png" width="30%" />
+  <img src="tasbeh_fon5.png" width="30%" />
+  <img src="tasbeh_fon6.png" width="30%" />
+</p>
 
 
-### 🔹 Option Menu 
-![menu Screen](tasbeh_fon5.png)
----
 
 ## 👨‍💻 Muallif | Author | 개발자
 
