@@ -42,6 +42,23 @@
 
 MIT
 
+## 📱 Ilova Ko‘rinishlari | App Screenshots | 앱 스크린샷들
+
+### 🔹 Asosiy Ekran
+![Main Screen](tasbeh_fon1.png)
+
+### 🔹 Tarix
+![History Screen](tasbeh_fon2.png)
+
+### 🔹 Statistika
+![Statistics Screen](tasbeh_fon3.png)
+
+### 🔹 Tasbeh Qo‘shish
+![Add Screen](tasbeh_fon4.png)
+
+
+### 🔹 Option Menu 
+![menu Screen](tasbeh_fon5.png)
 ---
 
 ## 👨‍💻 Muallif | Author | 개발자
@@ -50,11 +67,14 @@ MIT
 
 GitHub: [@ismoil201](https://github.com/ismoil201)
 
+
 ### 🚀 O‘rnatish
 
 ```bash
 git clone git@github.com:ismoil201/tasbeh.git
 cd tasbeh.git
+
+
 
 
 
