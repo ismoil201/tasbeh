@@ -14,7 +14,7 @@ data class Zikr(
 
     @ColumnInfo(name = "Zikr nomi")
     var zirk : Zikrlar,
-    var countZikr : Int,
+    var countPresent : Int,
     var date : String,
     var currentCount: Int,
     var maxCount: Int,

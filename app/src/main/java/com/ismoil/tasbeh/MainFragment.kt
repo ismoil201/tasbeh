@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.ismoil.tasbeh.databinding.DeleteDialogBinding
 import com.ismoil.tasbeh.databinding.FragmentMainBinding
@@ -41,7 +43,9 @@ class MainFragment : Fragment() {
         loadZikrs()
 
         binding.btnCounter.setOnClickListener {
-            currentZikr?.let { clickMainButton(it) }
+            currentZikr?.let {
+                if(!it.succsecc)
+                clickMainButton(it) }
         }
 
         binding.btnReset.setOnClickListener {
@@ -53,7 +57,23 @@ class MainFragment : Fragment() {
         }
 
         binding.btnList.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_listFragment)
+
+
+            findNavController().navigate(R.id.addNewFragment)
+        }
+
+        binding.btnTheme.setOnClickListener {
+            Toast.makeText(requireContext(), "Hozir mavjud emas!!!", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.btnProfile.setOnClickListener {
+            val options = NavOptions.Builder()
+                .setEnterAnim(R.anim.slide_in_right)
+                .setExitAnim(R.anim.slide_out_left)
+                .setPopEnterAnim(R.anim.slide_in_left)
+                .setPopExitAnim(R.anim.slide_out_right)
+                .build()
+            findNavController().navigate(R.id.action_mainFragment_to_profileFragment,null, options)
         }
     }
 
@@ -65,18 +85,46 @@ class MainFragment : Fragment() {
 
         currentZikr?.let { zikr ->
             binding.tvZikrNomi.text = zikr.zirk.zikrName
-            binding.tvZikrMaxSon.text =zikr.maxCount.toString()
+            binding.tvZikrMaxSon.text ="Bajarish: "+ zikr.maxCount.toString()
             binding.tvCount.text = zikr.currentCount.toString()
             binding.seekBar.progress = zikr.currentCount
             binding.seekBar.max = zikr.maxCount
         } ?: run {
             // Barcha zikrlar tugagan bo‘lsa
-            binding.tvZikrNomi.text = "Zikr Qo'shing!!"
+            binding.tvZikrNomi.text = "Zikr qo'shing"
+            Toast.makeText(requireContext(), "Iltimos, list bo'limiga zikr qo'shing!!!", Toast.LENGTH_SHORT).show()
 
             binding.tvCount.text = "0"
+            binding.tvZikrMaxSon.text ="0"
             binding.seekBar.progress = 0
         }
     }
+
+//    private fun clickMainButton(zikr: Zikr) {
+//        if (zikr.currentCount < zikr.maxCount) {
+//            zikr.currentCount++
+//
+//            // Ovoz chalinadi
+//            MediaPlayer.create(context, R.raw.button_1).apply {
+//                start()
+//                setOnCompletionListener { release() }
+//            }
+//
+//            binding.tvCount.text = zikr.currentCount.toString()
+//            binding.seekBar.progress = zikr.currentCount
+//
+//            // Tugadimi?
+//            if (zikr.currentCount >= zikr.maxCount) {
+//                zikr.succsecc = true
+//            }
+//            zikr.countPresent = ((zikr.currentCount.toFloat() / zikr.maxCount) * 100).toInt()
+//
+//            // Update DB
+//            database?.zikrDao()?.updateZikr(zikr)
+//        }else{
+//
+//        }
+//    }
 
     private fun clickMainButton(zikr: Zikr) {
         if (zikr.currentCount < zikr.maxCount) {
@@ -94,12 +142,21 @@ class MainFragment : Fragment() {
             // Tugadimi?
             if (zikr.currentCount >= zikr.maxCount) {
                 zikr.succsecc = true
+                zikr.countPresent = ((zikr.currentCount.toFloat() / zikr.maxCount) * 100).toInt()
+
+                // DB ni yangilab, yangi Zikr ni yuklaymiz
+                database?.zikrDao()?.updateZikr(zikr)
+                loadZikrs() // 👈 yangi zikrni topadi va currentZikr ni yangilaydi
+                return // oldingi currentZikr bilan davom etmaslik uchun
             }
+
+            zikr.countPresent = ((zikr.currentCount.toFloat() / zikr.maxCount) * 100).toInt()
 
             // Update DB
             database?.zikrDao()?.updateZikr(zikr)
         }
     }
+
 
     private fun showResetDialog(zikr: Zikr) {
         val deleteDialogBinding = DeleteDialogBinding.inflate(LayoutInflater.from(context))

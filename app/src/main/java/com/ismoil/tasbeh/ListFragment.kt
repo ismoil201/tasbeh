@@ -64,11 +64,14 @@ class ListFragment : Fragment(),ListAdapter.CallBack {
 
 
         if(zikrs.isEmpty()){
-            database?.zikrDao()?.getZikrs()?.let{zikrs.addAll(it) }
+            database?.zikrDao()?.getZikrs()?.let { allZikrs ->
+                zikrs.addAll(allZikrs.filter { !it.succsecc })
+            }
         }else{
             zikrs.clear()
-            database?.zikrDao()?.getZikrs()?.let{zikrs.addAll(it) }
-
+            database?.zikrDao()?.getZikrs()?.let { allZikrs ->
+                zikrs.addAll(allZikrs.filter { !it.succsecc })
+            }
         }
 
         listAdapter = ListAdapter(zikrs,this)
@@ -115,7 +118,6 @@ class ListFragment : Fragment(),ListAdapter.CallBack {
         ,"Ey Alloh! Muhammadga va Uning oilasiga salovot ayla."))
 
     }
-
     private fun initZikr(binding: AddZikrDialogBinding) {
         val spinnerAdapter = object : ArrayAdapter<Zikrlar>(
             requireContext(),
@@ -123,18 +125,20 @@ class ListFragment : Fragment(),ListAdapter.CallBack {
             zikrList
         ) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-                val view = convertView ?: LayoutInflater.from(context)
-                    .inflate(R.layout.spinner_item, parent, false)
-                val textView = view.findViewById<TextView>(R.id.spinner_text)
-                textView.text = getItem(position)?.zikrName ?: ""
-                return view
+                return createItemView(position, convertView, parent)
             }
 
             override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+                return createItemView(position, convertView, parent)
+            }
+
+            private fun createItemView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = convertView ?: LayoutInflater.from(context)
-                    .inflate(R.layout.spinner_dropdown_item, parent, false)
-                val textView = view.findViewById<TextView>(R.id.spinner_text)
-                textView.text = getItem(position)?.zikrName ?: ""
+                    .inflate(R.layout.spinner_item, parent, false)
+
+                val zikr = getItem(position)
+                view.findViewById<TextView>(R.id.tvZikrName).text = zikr?.zikrName
+                view.findViewById<TextView>(R.id.tvZikrMeaning).text = zikr?.infoZikr
                 return view
             }
         }
@@ -152,6 +156,30 @@ class ListFragment : Fragment(),ListAdapter.CallBack {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
+
+
+//private fun initZikr(binding: AddZikrDialogBinding) {
+  //  val adapter = ArrayAdapter(
+//        requireContext(),
+//        android.R.layout.simple_spinner_item,
+//        zikrList.map { it.zikrName }  // Faqat nomlarini ko‘rsatamiz
+//    ).also {
+//        it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//    }
+//
+//    binding.spinnerZikr.adapter = adapter
+//
+//    binding.spinnerZikr.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+//          val selectedObject = parent?.getItemAtPosition(position) as? Zikrlar
+//                selectedObject?.let {
+//                    Log.d("Zikr", "Tanlangan zikr: ${it.zikrName}")
+//                }
+//        }
+//
+//        override fun onNothingSelected(parent: AdapterView<*>?) {}
+//    }
+//}
 
 
     private fun addZikr(adapter: ListAdapter) {
@@ -177,7 +205,7 @@ class ListFragment : Fragment(),ListAdapter.CallBack {
                                 zirk = zikrSelected,
                                 maxCount = maxCount,
                                 date = dateInString,
-                                countZikr = 0,
+                                countPresent = 0,
                                 currentCount = 0,
                                 succsecc = false
                             )
@@ -190,6 +218,7 @@ class ListFragment : Fragment(),ListAdapter.CallBack {
 
                                 // Bazaga qo‘shilgandan so'ng, listga qo‘shamiz va adapterni yangilaymiz (main threadda)
                                 zikrs.add(newZikr)
+
                                 adapter.notifyItemInserted(zikrs.size - 1)
                                 dialog.dismiss()
                             }
@@ -216,9 +245,20 @@ class ListFragment : Fragment(),ListAdapter.CallBack {
         val formatter = SimpleDateFormat(format, locale)
         return formatter.format(this)
     }
-
     override fun itemDelete(zikr: Zikr, position: Int) {
+        lifecycleScope.launch {
+            // Avval bazadan o'chiramiz
+            withContext(Dispatchers.IO) {
+                database?.zikrDao()?.deleteZikr(zikr)
+            }
 
-        database?.zikrDao()?.deleteZikr(zikr)
+            // Keyin UI list va adapterni yangilaymiz — bu Main threadda
+            zikrs.removeAt(position)
+            listAdapter.notifyItemRemoved(position)
+            listAdapter.notifyItemRangeChanged(position, zikrs.size)
+            Toast.makeText(requireContext(), "Zikr o‘chirildi", Toast.LENGTH_SHORT).show()
+
+        }
     }
+
 }

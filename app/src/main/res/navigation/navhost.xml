@@ -29,8 +29,9 @@
             android:id="@+id/action_mainFragment_to_statisticFragment"
             app:destination="@id/statisticFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            android:id="@+id/action_mainFragment_to_addNewFragment"
+            app:destination="@id/addNewFragment"
+           />
     </fragment>
     <fragment
         android:id="@+id/addNewFragment"
@@ -40,9 +41,7 @@
         <action
             android:id="@+id/action_addNewFragment_to_listFragment"
             app:destination="@id/listFragment" />
-        <action
-            android:id="@+id/action_addNewFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -64,4 +63,13 @@
         android:name="com.ismoil.tasbeh.StatisticFragment"
         android:label="fragment_statistic"
         tools:layout="@layout/fragment_statistic" />
+    <fragment
+        android:id="@+id/succseccFragment"
+        android:name="com.ismoil.tasbeh.SuccseccFragment"
+        android:label="fragment_succsecc"
+        tools:layout="@layout/fragment_succsecc" >
+        <action
+            android:id="@+id/action_succseccFragment_to_addNewFragment"
+            app:destination="@id/addNewFragment" />
+    </fragment>
 </navigation>

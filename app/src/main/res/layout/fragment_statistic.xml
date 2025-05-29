@@ -1,15 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img_7"
     tools:context=".StatisticFragment">
 
+    <!-- Chart title -->
+    <TextView
+        android:id="@+id/chart_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kunlik Zikrlar"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Combined Chart -->
     <com.github.mikephil.charting.charts.CombinedChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="300dp"
+        android:layout_below="@id/chart_title"
         android:layout_margin="16dp"
         tools:ignore="MissingClass" />
+
+    <!-- Umumiy Ziklar sarlavhasi -->
+    <TextView
+        android:id="@+id/text_total_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Umumiy Ziklar"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_below="@id/chart"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Umumiy Ziklar soni -->
+    <TextView
+        android:id="@+id/text_total_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Umumiy: 0 ta zikr"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_below="@id/text_total_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp" />
+
+    <!-- Oylik Ziklar -->
+    <TextView
+        android:id="@+id/text_month_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Oylik: 0 ta zikr"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_below="@id/text_total_count"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp" />
+
+    <!-- Haftalik Ziklar -->
+    <TextView
+        android:id="@+id/text_week_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hafta: 0 ta zikr"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_below="@id/text_month_count"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp" />
+
+    <!-- Bugungi Ziklar -->
+    <TextView
+        android:id="@+id/text_today_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bugun: 0 ta zikr"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_regular"
+        android:layout_below="@id/text_week_count"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp" />
+
+    <!-- Eslatma matni -->
+    <TextView
+        android:id="@+id/text_reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zikrni har kuni qiling"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_below="@id/text_today_count"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp" />
 </RelativeLayout>

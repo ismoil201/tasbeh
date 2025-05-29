@@ -18,7 +18,7 @@
             android:id="@+id/tv_prosent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0%"
+            android:text=""
             android:textColor="#999999"
             android:textSize="13sp"
             android:fontFamily="@font/poppins_medium"

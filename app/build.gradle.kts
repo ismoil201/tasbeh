@@ -51,6 +51,7 @@ dependencies {
 
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation ("com.google.code.gson:gson:2.10.1")
+    implementation ("com.google.android.material:material:1.12.0") // Yoki eng so‘ngi versiyasi
 
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)

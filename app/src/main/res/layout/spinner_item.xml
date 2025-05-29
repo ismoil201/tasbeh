@@ -1,10 +1,24 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/spinner_text"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="8dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="14dp"
-    android:textSize="16sp"
-    android:textColor="#222222"
-    android:background="@drawable/spinner_bg"
-    android:gravity="center_vertical"
-    android:fontFamily="@font/poppins_regular"/>
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvZikrName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="aa"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="16sp"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/tvZikrMeaning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="14sp"
+        android:textColor="#666666" />
+</LinearLayout>

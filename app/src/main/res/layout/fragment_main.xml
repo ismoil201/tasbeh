@@ -25,7 +25,6 @@
         android:layout_height="50dp"
         android:src="@drawable/acount"
         android:background="@drawable/button_selector"
-
         android:contentDescription="Theme button"
         android:scaleType="centerInside"
         android:layout_marginTop="10dp"
@@ -52,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/roboto_semibold"
-        android:text="Reminder : 13"
+        android:text="Reminder : 0"
         android:textColor="#926841"
         app:layout_constraintTop_toBottomOf="@id/tv_zikr_nomi"
         android:textSize="14sp"

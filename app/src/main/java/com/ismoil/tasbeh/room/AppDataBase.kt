@@ -9,7 +9,7 @@ import com.ismoil.tasbeh.room.dao.ZikrDao
 import com.ismoil.tasbeh.room.entity.Zikr
 
 
-@Database(entities = [Zikr::class], version = 2)
+@Database(entities = [Zikr::class], version = 4)
 @TypeConverters(Converters::class)
 abstract class AppDataBase(): RoomDatabase() {
 
