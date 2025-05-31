@@ -22,7 +22,6 @@ import kotlinx.coroutines.withContext
 class SuccseccFragment : Fragment() , ListAdapter.CallBack{
 
     private var database: AppDataBase? = null
-    private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ListAdapter
     private val successList = mutableListOf<Zikr>()
 
@@ -37,8 +36,6 @@ class SuccseccFragment : Fragment() , ListAdapter.CallBack{
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSuccseccBinding.inflate(layoutInflater,container,false)
-        val view = inflater.inflate(R.layout.fragment_succsecc, container, false)
-        recyclerView = view.findViewById(R.id.rvSuccess)
         return binding.root
     }
 
@@ -50,11 +47,14 @@ class SuccseccFragment : Fragment() , ListAdapter.CallBack{
 
         binding.root.setBackgroundResource(theme.backgroundImage)
 
-        adapter = ListAdapter(successList,this)
 
-        recyclerView.adapter = adapter
+        adapter = ListAdapter(successList, this)
+        binding.rvSuccess.adapter = adapter
 
         loadSuccessZikrs()
+
+
+
     }
 
     private fun loadSuccessZikrs() {

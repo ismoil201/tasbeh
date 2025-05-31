@@ -34,8 +34,9 @@
 
     <ImageButton
         android:id="@+id/coin"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
         android:background="@drawable/coin"
         android:scaleType="centerInside"
         android:layout_marginTop="10dp"
@@ -62,11 +63,12 @@
 
     <TextView
         android:id="@+id/tv_zikr_nomi"
-        android:layout_width="wrap_content"
+        android:layout_width="184dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/roboto_semibold"
-        android:text=""
+        android:textAlignment="center"
+        android:text="@string/app_name"
         android:textColor="#603913"
         android:textSize="14sp"
         app:layout_constraintTop_toTopOf="parent"
