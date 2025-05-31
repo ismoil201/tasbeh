@@ -48,15 +48,17 @@
   <img src="tasbeh_fon3.png" width="30%" />
 </p>
 
+
 <p float="left">
-  <img src="tasbeh_fon4.png" width="30%" />
+ <img src="tasbeh_fon04.png" width="30%" />
   <img src="tasbeh_fon5.png" width="30%" />
-  <img src="tasbeh_fon6.png" width="30%" />
+
 </p>
 
 
 
 ## 👨‍💻 Muallif | Author | 개발자
+
 
 **Ismoil**  
 
