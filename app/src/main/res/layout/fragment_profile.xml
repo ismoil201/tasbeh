@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/img_7"
     android:padding="16dp"
-    tools:context=".ProfileFragment">
+    tools:context=".view.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -97,7 +97,7 @@
             android:layout_marginTop="22dp" />
 
         <include
-            android:id="@+id/setting2"
+            android:id="@+id/themes"
             layout="@layout/setting_item_switch_locked"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -111,7 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             layout="@layout/setting_item_switch_private"
-            app:layout_constraintTop_toBottomOf="@id/setting2"
+            app:layout_constraintTop_toBottomOf="@id/themes"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="18dp" />

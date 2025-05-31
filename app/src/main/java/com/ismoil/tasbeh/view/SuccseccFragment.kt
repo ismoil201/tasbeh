@@ -1,4 +1,4 @@
-package com.ismoil.tasbeh
+package com.ismoil.tasbeh.view
 
 import android.content.Context
 import android.os.Bundle
@@ -9,9 +9,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import com.ismoil.tasbeh.R
 import com.ismoil.tasbeh.adapter.ListAdapter
+import com.ismoil.tasbeh.databinding.FragmentSuccseccBinding
 import com.ismoil.tasbeh.room.AppDataBase
 import com.ismoil.tasbeh.room.entity.Zikr
+import com.ismoil.tasbeh.utils.ThemeUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -23,6 +26,7 @@ class SuccseccFragment : Fragment() , ListAdapter.CallBack{
     private lateinit var adapter: ListAdapter
     private val successList = mutableListOf<Zikr>()
 
+    private lateinit var binding : FragmentSuccseccBinding
     override fun onAttach(context: Context) {
         super.onAttach(context)
         database = AppDataBase.getInstance(context)
@@ -32,13 +36,19 @@ class SuccseccFragment : Fragment() , ListAdapter.CallBack{
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentSuccseccBinding.inflate(layoutInflater,container,false)
         val view = inflater.inflate(R.layout.fragment_succsecc, container, false)
         recyclerView = view.findViewById(R.id.rvSuccess)
-        return view
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val theme = ThemeUtils.loadTheme(requireContext())
+
+
+        binding.root.setBackgroundResource(theme.backgroundImage)
 
         adapter = ListAdapter(successList,this)
 

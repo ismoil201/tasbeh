@@ -26,6 +26,7 @@
             android:text="Dynamic Touch"
             android:textColor="@color/light_gray"
             android:textStyle="bold"
+
             android:drawableEnd="@drawable/qulp"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>

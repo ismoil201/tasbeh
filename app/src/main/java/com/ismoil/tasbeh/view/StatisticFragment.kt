@@ -1,4 +1,4 @@
-package com.ismoil.tasbeh
+package com.ismoil.tasbeh.view
 
 import android.graphics.Color
 import android.os.Bundle
@@ -12,6 +12,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.animation.Easing
 import com.ismoil.tasbeh.databinding.FragmentStatisticBinding
 import com.ismoil.tasbeh.room.AppDataBase
+import com.ismoil.tasbeh.utils.ThemeUtils
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -33,6 +34,22 @@ class StatisticFragment : Fragment() {
         setupStatistics()
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        val theme = ThemeUtils.loadTheme(requireContext())
+
+
+        binding.root.setBackgroundResource(theme.backgroundImage)
+        binding.textWeekCount.setTextColor(theme.buttonBg)
+        binding.textMonthCount.setTextColor(theme.buttonBg)
+        binding.textTodayCount.setTextColor(theme.buttonBg)
+        binding.textTotalCount.setTextColor(theme.buttonBg)
+        binding.textReminder.setTextColor(theme.buttonBg)
+        binding.textTotalTitle.setTextColor(theme.buttonBg)
     }
 
     private fun setupChart() {

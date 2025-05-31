@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.ismoil.tasbeh.SplashFragment"
+        android:name="com.ismoil.tasbeh.view.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.ismoil.tasbeh.MainFragment"
+        android:name="com.ismoil.tasbeh.view.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/addNewFragment"
-        android:name="com.ismoil.tasbeh.AddNewFragment"
+        android:name="com.ismoil.tasbeh.view.AddNewFragment"
         android:label="fragment_add_new"
         tools:layout="@layout/fragment_add_new" >
         <action
@@ -45,27 +45,27 @@
     </fragment>
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.ismoil.tasbeh.ListFragment"
+        android:name="com.ismoil.tasbeh.view.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.ismoil.tasbeh.ProfileFragment"
+        android:name="com.ismoil.tasbeh.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/themeFragment"
-        android:name="com.ismoil.tasbeh.ThemeFragment"
+        android:name="com.ismoil.tasbeh.view.ThemeFragment"
         android:label="fragment_theme"
         tools:layout="@layout/fragment_theme" />
     <fragment
         android:id="@+id/statisticFragment"
-        android:name="com.ismoil.tasbeh.StatisticFragment"
+        android:name="com.ismoil.tasbeh.view.StatisticFragment"
         android:label="fragment_statistic"
         tools:layout="@layout/fragment_statistic" />
     <fragment
         android:id="@+id/succseccFragment"
-        android:name="com.ismoil.tasbeh.SuccseccFragment"
+        android:name="com.ismoil.tasbeh.view.SuccseccFragment"
         android:label="fragment_succsecc"
         tools:layout="@layout/fragment_succsecc" >
         <action

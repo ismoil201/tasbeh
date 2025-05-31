@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/img_7"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".SuccseccFragment">
+    tools:context=".view.SuccseccFragment">
 
 
     <TextView

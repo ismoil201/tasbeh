@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:padding="5dp"
     android:background="@drawable/img_7"
-    tools:context=".AddNewFragment">
+    tools:context=".view.AddNewFragment">
 
     <!-- TabLayout -->
     <com.google.android.material.tabs.TabLayout

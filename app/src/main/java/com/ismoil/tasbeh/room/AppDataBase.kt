@@ -5,15 +5,18 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.ismoil.tasbeh.room.dao.UserDao
 import com.ismoil.tasbeh.room.dao.ZikrDao
+import com.ismoil.tasbeh.room.entity.User
 import com.ismoil.tasbeh.room.entity.Zikr
 
 
-@Database(entities = [Zikr::class], version = 4)
+@Database(entities = [Zikr::class, User::class], version = 6)
 @TypeConverters(Converters::class)
 abstract class AppDataBase(): RoomDatabase() {
 
     abstract fun zikrDao():ZikrDao
+    abstract fun userDao():UserDao
 
     companion object{
         private var instance:AppDataBase ?=null

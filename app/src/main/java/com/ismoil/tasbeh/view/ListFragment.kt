@@ -1,4 +1,4 @@
-package com.ismoil.tasbeh
+package com.ismoil.tasbeh.view
 
 import android.app.AlertDialog
 import android.content.Context
@@ -23,6 +23,8 @@ import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 import androidx.lifecycle.lifecycleScope
+import com.ismoil.tasbeh.R
+import com.ismoil.tasbeh.utils.ThemeUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -61,6 +63,11 @@ class ListFragment : Fragment(),ListAdapter.CallBack {
         addZikrList()
 
 
+        val theme = ThemeUtils.loadTheme(requireContext())
+
+
+        binding.root.setBackgroundResource(theme.backgroundImage)
+        binding.btnAddZikr.setBackgroundResource(theme.buttonBg)
 
 
         if(zikrs.isEmpty()){
@@ -91,30 +98,35 @@ class ListFragment : Fragment(),ListAdapter.CallBack {
 
     private  fun addZikrList(){
         zikrList.add(Zikrlar("Subhanalloh – سبحان الله" ,
-            "\uD83D\uDD4B Zikrlar (Allohni yod etish)","Ma’nosi: Alloh barcha nuqsonlardan pokdir."))
-        zikrList.add(Zikrlar("Alhamdulillah – الحمد لله", "",
+            "1","Ma’nosi: Alloh barcha nuqsonlardan pokdir."))
+        zikrList.add(Zikrlar("Alhamdulillah – الحمد لله", "2",
             "Ma’nosi: Barcha hamdu sano Allohgadir."))
-        zikrList.add(Zikrlar("Allohu Akbar – الله أكبر","",
+        zikrList.add(Zikrlar("Allohu Akbar – الله أكبر","3",
             "Ma’nosi: Alloh buyukdir."))
-        zikrList.add(Zikrlar("La ilaha illalloh – لا إله إلا الله","",
+        zikrList.add(Zikrlar("Subhana Rabbi Al Ala سُبْحَانَ رَبِّيَ الأَعْلَى","13", "" +//todo 13 <---
+                "Eng yuksak bo‘lgan Rabbimni har qanday nuqsonlardan poklayman."))
+
+        zikrList.add(Zikrlar("La ilaha illalloh Muhhamadur Rasul Allah – لا إله إلا الله","4",
             "Ma’nosi: Allohdan o‘zga sig‘inilishga loyiq iloh yo‘q."))
-        zikrList.add(Zikrlar("La hawla wa la quwwata illa billah – لا حول ولاقوة إلا بالله","",
+        zikrList.add(Zikrlar("La hawla wa la quwwata illa billah – لا حول ولاقوة إلا بالله","5",
             "Ma’nosi: Hech qanday kuch va qudrat yo‘q, faqat Allohning yordamidangina."))
 
-        zikrList.add(Zikrlar("Astaghfirulloh – أستغفر الله","\uD83C\uDF27\uFE0F Istig‘for (Gunohlardan mag‘firat so‘rash)",
+        zikrList.add(Zikrlar("Astaghfirulloh – أستغفر الله","6",
             "Ma’nosi: Allohdan mag‘firat so‘rayman."))
-        zikrList.add(Zikrlar("Subhanaaka va bihamdika astag'firuka va atuvbu ilayk",""
-        ,"Ma'nosi: Ya Alloh! Sen har qanday nuqsondan Poksan, hamdu sanoga faqat o'zing loyiqsan." +
-                    " Senga istig'vor aytaman, tavba qilaman!"))
-        zikrList.add(Zikrlar("G'ufronaka ","","Ma'nosi: Ya Alloh! gunovlarimni kechir!"))
+        zikrList.add(Zikrlar("Subhanaaka Allahumma Wa Bihamdika Watabarak asmuka wa ta'ala" +
+                " jadduka , wa la illaha ghayruka","7"
+        ,"Ma'nosi: Ey Allohim, Seni har qanday nuqsonlardan pok deb yod etaman va Seni hamd " +
+                    "bilan madh etaman. Isming muborakdir, ulug‘liging yuksakdir, Senden boshqa iloh yo‘qdir."))
+        zikrList.add(Zikrlar("G'ufronaka ","8","Ma'nosi: Ya Alloh! gunovlarimni kechir!"))
         zikrList.add(Zikrlar("Astag'firullohallaziy laa illaha illa huval hayyul qoyyum, atuvbu ilayx",
-            "","Ma'nosi: Undan O'zga iloh yo'q, doim tirik, har narsaga guvoh bo'luvchi" +
+            "9","Ma'nosi: Undan O'zga iloh yo'q, doim tirik, har narsaga guvoh bo'luvchi" +
                     " Allohga istig'vor aytaman, tavba qilaman!"))
-        zikrList.add(Zikrlar("Astag'firulloha va atuvbu ilayh","",
+        zikrList.add(Zikrlar("Astag'firulloha va atuvbu ilayh","10",
         "Ma'nosi: Allohdan kechirim so'rayman, unga tavba qilaman!"))
-        zikrList.add(Zikrlar("Allohumma solli ‘ala sayyidina Muhammadinin-nabiyyil-ummiyyi va ‘ala alihi va sahbihi va sallim.",
-            "Salavot✨",""))
-        zikrList.add(Zikrlar("Allahumma salli 'ala Muhammadin wa 'ala aali Muhammadin.",""
+        zikrList.add(
+            Zikrlar("Allohumma solli ‘ala sayyidina Muhammadinin-nabiyyil-ummiyyi va ‘ala alihi va sahbihi va sallim.",
+            "11",""))
+        zikrList.add(Zikrlar("Allahumma salli 'ala Muhammadin wa 'ala aali Muhammadin.","12"
         ,"Ey Alloh! Muhammadga va Uning oilasiga salovot ayla."))
 
     }
