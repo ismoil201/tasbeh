@@ -235,7 +235,7 @@ class MainFragment : Fragment() {
 
             // Ovoz chalinadi
             MediaPlayer.create(context, R.raw.button_1).apply {
-                setVolume(0.4f, 0.4f) // 0.0 (jim) dan 1.0 (eng baland) gacha
+                setVolume(0.05f, 0.05f) // 0.0 (jim) dan 1.0 (eng baland) gacha
                 start()
                 setOnCompletionListener { release() }
             }
