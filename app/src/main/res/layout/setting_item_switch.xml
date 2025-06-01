@@ -26,12 +26,14 @@
             android:text="Dynamic Touch"
             android:textColor="@color/light_gray"
             android:textStyle="bold"
-
+            android:drawablePadding="30dp"
             android:drawableEnd="@drawable/qulp"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"/>
 
         <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/tv_touch_title"
             android:text="Disabled"
             android:textColor="#795548"
             android:textSize="12sp"
@@ -40,8 +42,9 @@
     </LinearLayout>
 
     <Switch
+        android:id="@+id/touch_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:checked="false"
+        android:checked="true"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 </LinearLayout>

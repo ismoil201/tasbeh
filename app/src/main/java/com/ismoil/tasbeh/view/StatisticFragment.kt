@@ -2,14 +2,20 @@ package com.ismoil.tasbeh.view
 
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.animation.Easing
+import com.ismoil.tasbeh.R
 import com.ismoil.tasbeh.databinding.FragmentStatisticBinding
 import com.ismoil.tasbeh.room.AppDataBase
 import com.ismoil.tasbeh.utils.ThemeUtils
@@ -143,6 +149,22 @@ class StatisticFragment : Fragment() {
         binding.textMonthCount.text = "Oylik: $monthly ta zikr"
         binding.textWeekCount.text = "Hafta: $weekly ta zikr"
         binding.textTodayCount.text = "Bugun: $todayTotal ta zikr"
+
+        checkAndShowCongrats(total)
+
+    }
+    private fun checkAndShowCongrats(total: Int) {
+        val prefs = requireContext().getSharedPreferences("prefs", 0)
+        val lastCongrats = prefs.getInt("last_congrats", 0)
+
+        if (total > 0 && total % 1000 == 0 && total > lastCongrats) {
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.animationView.visibility = View.VISIBLE
+                // Yangi bosqichni saqlaymiz
+                prefs.edit().putInt("last_congrats", total).apply()
+                Toast.makeText(requireContext(), "Jami: $total + Ma Sha Allah \uD83D\uDC4F ", Toast.LENGTH_SHORT).show()
+            }, 2500)
+        }
     }
 
     private fun getCurrentDate(format: String): String {

@@ -7,6 +7,16 @@
     android:background="@drawable/img_7"
     tools:context=".view.StatisticFragment">
 
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_rawRes="@raw/congratulate"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+       />
     <!-- Chart title -->
     <TextView
         android:id="@+id/chart_title"
@@ -23,7 +33,7 @@
     <com.github.mikephil.charting.charts.CombinedChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         android:layout_below="@id/chart_title"
         android:layout_margin="16dp"
         tools:ignore="MissingClass" />

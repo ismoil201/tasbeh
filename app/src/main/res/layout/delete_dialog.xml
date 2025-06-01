@@ -4,26 +4,27 @@
     android:layout_height="wrap_content"
     android:padding="12sp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-<ImageView
-    android:id="@+id/iv_about"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/about"
-    app:layout_constraintEnd_toEndOf="@id/tv_sure"
-    app:layout_constraintStart_toStartOf="@id/tv_sure"
-    app:layout_constraintTop_toTopOf="parent"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        app:lottie_rawRes="@raw/ohnorobot"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+         app:layout_constraintEnd_toEndOf="@id/tv_sure"
+         app:layout_constraintStart_toStartOf="@id/tv_sure"
+         app:layout_constraintTop_toTopOf="parent"
     />
 
     <TextView
         android:id="@+id/tv_sure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Are you sure?"
+        android:text="Amalni tasdiqlang"
         android:fontFamily="@font/poppins_semibold"
         android:textColor="#707070"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_about"
+        app:layout_constraintTop_toBottomOf="@id/animationView"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -32,7 +33,7 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="\t\t\tRostdan ham  o‘chirib tashlamoqchimisiz? \n\t\t\t\t\t Bu amalni ortga \t qaytarib bo‘lmaydi.!"
+        android:text="\t\t\tHaqiqatan ham o‘chirishni xohlaysizmi? \n\t\t\t\t\t Ushbu amalni  ortga qaytarish imkonsiz.!"
         android:fontFamily="@font/poppins_regular"
         android:textColor="#707070"
         app:layout_constraintTop_toBottomOf="@id/tv_sure"
@@ -46,7 +47,9 @@
         android:id="@+id/btn_cancel"
         android:layout_width="70dp"
         android:layout_height="28dp"
-        android:text="NO"
+        android:text="Bekor qilish
+
+"
         android:textSize="10sp"
         android:layout_marginTop="20dp"
         android:textAllCaps="false"
@@ -63,7 +66,7 @@
         android:id="@+id/btn_delete"
         android:layout_width="70dp"
         android:layout_height="28dp"
-        android:text="YES"
+        android:text="O‘chirish"
         android:textSize="10sp"
         android:textAllCaps="false"
         android:fontFamily="@font/poppins_semibold"

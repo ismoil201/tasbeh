@@ -1,5 +1,6 @@
 package com.ismoil.tasbeh.view
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -126,7 +127,7 @@ class MainFragment : Fragment() {
             binding.seekBar.max = zikr.maxCount
         } ?: run {
             // Barcha zikrlar tugagan bo‘lsa
-            binding.tvZikrNomi.text = "Zikr qo'shing"
+            binding.tvZikrNomi.text = "List bo'limiga, Zikr qo'shing"
             Toast.makeText(requireContext(), "Iltimos, list bo'limiga zikr qo'shing!!!", Toast.LENGTH_SHORT).show()
 
 

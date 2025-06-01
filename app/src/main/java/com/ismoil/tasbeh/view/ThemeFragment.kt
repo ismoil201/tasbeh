@@ -90,7 +90,7 @@ class ThemeFragment : Fragment(), ThemeAdapter.CallBack {
         com.ismoil.tasbeh.utils.ThemeUtils.saveTheme(requireContext(), theme)
 
         // Foydalanuvchiga bildirishnoma
-        android.widget.Toast.makeText(requireContext(), "Mavzu saqlandi!", android.widget.Toast.LENGTH_SHORT).show()
+        android.widget.Toast.makeText(requireContext(), "Theme saqlandi!", android.widget.Toast.LENGTH_SHORT).show()
 
         // Fragment yoki Activity qayta chizilishini xohlasangiz:
         // requireActivity().recreate()

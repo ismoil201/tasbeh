@@ -46,7 +46,7 @@
             android:id="@+id/pro_card"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/buttom_delete_bg"
+            android:background="@drawable/edit_text"
             android:orientation="horizontal"
             android:padding="16dp"
             android:gravity="center_vertical"
@@ -56,6 +56,7 @@
             android:layout_marginTop="56dp">
 
             <LinearLayout
+                android:id="@+id/btn_pro"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -71,7 +72,7 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
-                    android:text="Remove ads, more …"
+                    android:text="Remove ads, more coin …"
                     android:textSize="12sp"
                     android:fontFamily="@font/poppins_regular"
                     android:textColor="@android:color/black"
@@ -80,9 +81,11 @@
             </LinearLayout>
 
             <ImageView
+
+                android:layout_marginEnd="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/almaz" />
+                android:src="@drawable/coin" />
         </LinearLayout>
 
         <!-- Includes -->
@@ -107,7 +110,7 @@
             android:layout_marginTop="18dp" />
 
         <include
-            android:id="@+id/setting3"
+            android:id="@+id/language"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             layout="@layout/setting_item_switch_private"
@@ -117,13 +120,13 @@
             android:layout_marginTop="18dp" />
 
         <include
-            android:id="@+id/appearance_setting"
+            android:id="@+id/notification"
             layout="@layout/setting_item_arrow"
             android:tag="Appearance"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             tools:text="Neon"
-            app:layout_constraintTop_toBottomOf="@id/setting3"
+            app:layout_constraintTop_toBottomOf="@id/language"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="18dp" />
