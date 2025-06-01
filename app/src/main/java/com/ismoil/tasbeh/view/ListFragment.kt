@@ -24,6 +24,7 @@ import java.util.Date
 import java.util.Locale
 import androidx.lifecycle.lifecycleScope
 import com.ismoil.tasbeh.R
+import com.ismoil.tasbeh.databinding.DeleteDialogBinding
 import com.ismoil.tasbeh.utils.ThemeUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -258,19 +259,36 @@ class ListFragment : Fragment(),ListAdapter.CallBack {
         return formatter.format(this)
     }
     override fun itemDelete(zikr: Zikr, position: Int) {
-        lifecycleScope.launch {
+
             // Avval bazadan o'chiramiz
-            withContext(Dispatchers.IO) {
-                database?.zikrDao()?.deleteZikr(zikr)
+
+        val deleteDialogBinding = DeleteDialogBinding.inflate(LayoutInflater.from(context))
+
+        val dialog = AlertDialog.Builder(requireContext())
+            .setView(deleteDialogBinding.root)
+            .create()
+
+        deleteDialogBinding.apply {
+            btnDelete.setOnClickListener {
+                lifecycleScope.launch {
+                    withContext(Dispatchers.IO) {
+                        database?.zikrDao()?.deleteZikr(zikr)
+                    }
+
+                    zikrs.removeAt(position)
+                    listAdapter.notifyItemRemoved(position)
+                    dialog.dismiss()
+                    Toast.makeText(requireContext(), "Zikr o‘chirildi", Toast.LENGTH_SHORT).show()
+                }
             }
 
-            // Keyin UI list va adapterni yangilaymiz — bu Main threadda
-            zikrs.removeAt(position)
-            listAdapter.notifyItemRemoved(position)
-            listAdapter.notifyItemRangeChanged(position, zikrs.size)
-            Toast.makeText(requireContext(), "Zikr o‘chirildi", Toast.LENGTH_SHORT).show()
-
+            btnCancel.setOnClickListener {
+                dialog.dismiss()
+            }
         }
-    }
 
+        dialog.show()
+
+    }
 }
+

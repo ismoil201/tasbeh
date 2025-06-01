@@ -1,5 +1,6 @@
 package com.ismoil.tasbeh.view
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.ismoil.tasbeh.R
 import com.ismoil.tasbeh.adapter.ListAdapter
+import com.ismoil.tasbeh.databinding.DeleteDialogBinding
 import com.ismoil.tasbeh.databinding.FragmentSuccseccBinding
 import com.ismoil.tasbeh.room.AppDataBase
 import com.ismoil.tasbeh.room.entity.Zikr
@@ -72,17 +74,37 @@ class SuccseccFragment : Fragment() , ListAdapter.CallBack{
     }
 
     override fun itemDelete(zikr: Zikr, position: Int) {
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                database?.zikrDao()?.deleteZikr(zikr)
+
+        val deleteDialogBinding = DeleteDialogBinding.inflate(LayoutInflater.from(context))
+
+        val dialog = AlertDialog.Builder(requireContext())
+            .setView(deleteDialogBinding.root)
+            .create()
+
+        deleteDialogBinding.apply {
+            btnDelete.setOnClickListener {
+                lifecycleScope.launch {
+                    withContext(Dispatchers.IO) {
+                        database?.zikrDao()?.deleteZikr(zikr)
+                    }
+
+                    successList.removeAt(position)
+                    adapter.notifyItemRemoved(position)
+                    adapter.notifyItemRangeChanged(position, successList.size)
+
+                    Toast.makeText(requireContext(), "Zikr o‘chirildi", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss() // <-- dismissni ham to‘g‘ri joyga qo‘yish kerak
+                }
             }
 
-            // UI update main thread
-            successList.removeAt(position)
-            adapter.notifyItemRemoved(position)
-            adapter.notifyItemRangeChanged(position, successList.size)
-            Toast.makeText(requireContext(), "Zikr o‘chirildi", Toast.LENGTH_SHORT).show()
+            btnCancel.setOnClickListener {
+                dialog.dismiss() // ✅ Endi to‘g‘ri ishlaydi
+            }
         }
+
+        dialog.show()
+
+
     }
 
 
