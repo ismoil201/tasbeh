@@ -25,6 +25,7 @@ class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
+
     private var database: AppDataBase? = null
     private lateinit var zikrs: MutableList<Zikr>
     private var currentZikr: Zikr? = null
@@ -234,6 +235,7 @@ class MainFragment : Fragment() {
 
             // Ovoz chalinadi
             MediaPlayer.create(context, R.raw.button_1).apply {
+                setVolume(0.4f, 0.4f) // 0.0 (jim) dan 1.0 (eng baland) gacha
                 start()
                 setOnCompletionListener { release() }
             }

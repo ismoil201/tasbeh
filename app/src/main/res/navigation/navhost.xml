@@ -23,9 +23,6 @@
             android:id="@+id/action_mainFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_themeFragment"
-            app:destination="@id/themeFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_statisticFragment"
             app:destination="@id/statisticFragment" />
         <action
@@ -52,7 +49,11 @@
         android:id="@+id/profileFragment"
         android:name="com.ismoil.tasbeh.view.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_themeFragment"
+            app:destination="@id/themeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/themeFragment"
         android:name="com.ismoil.tasbeh.view.ThemeFragment"
