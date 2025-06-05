@@ -40,7 +40,7 @@
             android:id="@+id/btn_save"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Tanlash "
+            android:text="@string/tanlash"
             android:textAllCaps="false"
             android:textColor="@color/text_dark"
             android:layout_marginBottom="10dp"

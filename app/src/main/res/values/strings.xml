@@ -1,5 +1,40 @@
 <resources>
     <string name="app_name">Tasbeh</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="bekor_qilish" translatable="false">Bekor qilish</string>
+    <string name="ok" translatable="false">Ok</string>
+    <string name="yangi_tasbeh_qo_shish" translatable="false">🟡 Yangi tasbeh qo‘shish</string>
+    <string name="iltimos_zarur_ma_lumotlarni_kiriting" translatable="false">Iltimos, zarur ma\'lumotlarni kiriting</string>
+    <string name="takrorlar_soni" translatable="false">Takrorlar soni</string>
+    <string name="masalan_100" translatable="false">Masalan: 100</string>
+    <string name="saqlash" translatable="false">Saqlash</string>
+    <string name="amalni_tasdiqlang">Amalni tasdiqlang</string>
+    <string name="t_t_thaqiqatan_ham_o_chirishni_xohlaysizmi_n_t_t_t_t_t_ushbu_amalni_ortga_qaytarish_imkonsiz">\t\t\tHaqiqatan ham o‘chirishni xohlaysizmi? \n\t\t\t\t\t Ushbu amalni ortga qaytarish imkonsiz.!</string>
+    <string name="o_chirish">O‘chirish</string>
+    <string name="bajarishingiz_kerak_bo_lgan_zikrlar">Bajarishingiz kerak bo\'lgan zikrlar</string>
+    <string name="theme_button">Theme button</string>
+    <string name="reminder_0">Reminder : 0</string>
+    <string name="reminder_1">Reminder : 0</string>
+    <string name="counter_button">Counter Button</string>
+    <string name="get_pro_now">Get Pro Now</string>
+    <string name="remove_ads_more_coin">Remove ads, more coin …</string>
+    <string name="umumiy_ziklar">Umumiy Ziklar</string>
+    <string name="umumiy_0_ta_zikr">Umumiy: 0 ta zikr</string>
+    <string name="oylik_0_ta_zikr">Oylik: 0 ta zikr</string>
+    <string name="hafta_0_ta_zikr">Hafta: 0 ta zikr</string>
+    <string name="bugun_0_ta_zikr">Bugun: 0 ta zikr</string>
+    <string name="zikrni_har_kuni_qiling">Zikrni har kuni qiling</string>
+    <string name="yakunlangan_zikrlar">Yakunlangan zikrlar</string>
+    <string name="yangi_zikr_qo_shish_uchun_iltimos">Yangi zikr qo‘shish uchun iltimos,</string>
+    <string name="t_t_pastgi_qismda_joylashga_list_bo_limiga_o_ting_n_t_t_t_t_t_va_kerakli_ma_lumotlarni_kiriting">\t\t pastgi qismda joylashga \'List\' bo‘limiga o‘ting \n\t\t\t\t\t va kerakli ma’lumotlarni kiriting.!</string>
+    <string name="tanlash">Tanlash</string>
+    <string name="notifications">Notifications</string>
+    <string name="yoqilgan">Yoqilgan</string>
+    <string name="dynamic_touch">Dynamic Touch</string>
+    <string name="disabled">Disabled</string>
+    <string name="themes">Themes</string>
+    <string name="ko_rinishni_o_zingizga_moslang">Ko‘rinishni o‘zingizga moslang</string>
+    <string name="language">Language</string>
+    <string name="uzbek">Uzbek</string>
 </resources>

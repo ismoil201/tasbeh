@@ -7,9 +7,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        app:lottie_rawRes="@raw/ohnorobot"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        app:lottie_rawRes="@raw/anim3"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
          app:layout_constraintEnd_toEndOf="@id/tv_sure"
@@ -21,7 +21,7 @@
         android:id="@+id/tv_sure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/amalni_tasdiqlang"
+        android:text="@string/yangi_zikr_qo_shish_uchun_iltimos"
         android:fontFamily="@font/poppins_semibold"
         android:textColor="#707070"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/t_t_thaqiqatan_ham_o_chirishni_xohlaysizmi_n_t_t_t_t_t_ushbu_amalni_ortga_qaytarish_imkonsiz"
+        android:text="@string/t_t_pastgi_qismda_joylashga_list_bo_limiga_o_ting_n_t_t_t_t_t_va_kerakli_ma_lumotlarni_kiriting"
         android:fontFamily="@font/poppins_regular"
         android:textColor="#707070"
         app:layout_constraintTop_toBottomOf="@id/tv_sure"
@@ -48,34 +48,19 @@
         android:id="@+id/btn_cancel"
         android:layout_width="70dp"
         android:layout_height="28dp"
-        android:text="@string/bekor_qilish"
+        android:text="@string/ok"
         android:textSize="10sp"
         android:layout_marginTop="20dp"
         android:textAllCaps="false"
         android:fontFamily="@font/inter_extrabold"
-        android:background="@drawable/delete_bg2"
+        android:background="@drawable/spinner_bg"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_delete"
-       app:layout_constraintTop_toBottomOf="@id/tv_title"
-        android:textColor="#FF9800"/>
-
-
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_delete"
-        android:layout_width="70dp"
-        android:layout_height="28dp"
-        android:text="@string/o_chirish"
-        android:textSize="10sp"
-        android:textAllCaps="false"
-        android:fontFamily="@font/poppins_semibold"
-        android:background="@drawable/delete_bg"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintStart_toEndOf="@id/btn_cancel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btn_cancel"
-        android:textColor="@color/white"
-        tools:ignore="SmallSp" />
+       app:layout_constraintTop_toBottomOf="@id/tv_title"
+        android:textColor="#F8F8F7"/>
+
+
+
 
 
 

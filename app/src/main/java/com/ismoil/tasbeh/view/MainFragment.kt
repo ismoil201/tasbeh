@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.ismoil.tasbeh.R
 import com.ismoil.tasbeh.databinding.DeleteDialogBinding
 import com.ismoil.tasbeh.databinding.FragmentMainBinding
+import com.ismoil.tasbeh.databinding.IfonDialogBinding
 import com.ismoil.tasbeh.room.AppDataBase
 import com.ismoil.tasbeh.room.entity.User
 import com.ismoil.tasbeh.room.entity.Zikr
@@ -127,6 +128,18 @@ class MainFragment : Fragment() {
             binding.seekBar.max = zikr.maxCount
         } ?: run {
             // Barcha zikrlar tugagan bo‘lsa
+            val deleteDialogBinding = IfonDialogBinding.inflate(LayoutInflater.from(context))
+            val dialog = AlertDialog.Builder(requireContext()).create()
+            dialog.setView(deleteDialogBinding.root)
+
+            deleteDialogBinding.apply {
+
+                btnCancel.setOnClickListener {
+                    dialog.dismiss()
+                }
+            }
+
+            dialog.show()
             binding.tvZikrNomi.text = "List bo'limiga, Zikr qo'shing"
             Toast.makeText(requireContext(), "Iltimos, list bo'limiga zikr qo'shing!!!", Toast.LENGTH_SHORT).show()
 

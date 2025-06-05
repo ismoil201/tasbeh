@@ -12,7 +12,7 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Yakunlangan   zikrlar"
+        android:text="@string/yakunlangan_zikrlar"
         android:textColor="#222222"
         android:textSize="18sp"
         android:layout_marginTop="8dp"

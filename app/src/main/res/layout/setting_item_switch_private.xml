@@ -34,7 +34,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Language"
+            android:text="@string/language"
             android:textColor="@color/light_gray"
             android:textStyle="bold" />
 
@@ -42,7 +42,7 @@
             android:id="@+id/subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Uzbek"
+            android:text="@string/uzbek"
             android:textColor="#795548"
             android:textSize="12sp" />
     </LinearLayout>
